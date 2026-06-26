@@ -11,12 +11,12 @@ export default function Contact() {
   const isInView = useInView(ref, { once: true, margin: '-100px' })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
-  const [error, setError] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
-    setError(false)
+    setError(null)
 
     const form = e.currentTarget
     const formData = new FormData(form)
@@ -34,10 +34,11 @@ export default function Contact() {
         setSubmitted(true)
         form.reset()
       } else {
-        setError(true)
+        const data = await response.json()
+        setError(data.error || '发送失败，请稍后重试')
       }
     } catch {
-      setError(true)
+      setError('发送失败，请稍后重试')
     } finally {
       setIsSubmitting(false)
     }
@@ -123,11 +124,10 @@ export default function Contact() {
 
                 <div>
                   <label className="block text-sm font-medium text-text mb-1.5">
-                    {t('formMessage')} *
+                    {t('formMessage')} <span className="text-text/40">(选填)</span>
                   </label>
                   <textarea
                     name="message"
-                    required
                     rows={3}
                     className="w-full px-4 py-3 rounded-lg border border-light focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all resize-none text-sm"
                     placeholder={t('formMessage')}
@@ -135,9 +135,9 @@ export default function Contact() {
                 </div>
 
                 {error && (
-                  <div className="flex items-center gap-2 text-red-500 text-sm">
-                    <AlertCircle className="w-4 h-4" />
-                    {t('formError')}
+                  <div className="flex items-center gap-2 text-red-500 text-sm bg-red-50 p-3 rounded-lg">
+                    <AlertCircle className="w-4 h-4 flex-shrink-0" />
+                    <span>{error}</span>
                   </div>
                 )}
 
@@ -149,7 +149,7 @@ export default function Contact() {
                   {isSubmitting ? (
                     <>
                       <Loader2 className="w-4 h-4 animate-spin" />
-                      Sending...
+                      发送中...
                     </>
                   ) : (
                     <>

@@ -53,7 +53,7 @@ export default function About() {
           >
             <div className="inline-flex items-center gap-2 bg-accent/10 px-4 py-2 rounded-full mb-6">
               <Sparkles className="w-4 h-4 text-accent" />
-              <span className="text-sm font-medium text-accent">关于才那旅行</span>
+              <span className="text-sm font-medium text-accent">关于中环旅行</span>
             </div>
 
             <h2 className="font-serif text-4xl md:text-5xl font-bold text-primary mb-6 leading-tight">
@@ -64,7 +64,7 @@ export default function About() {
             <div className="w-20 h-1 bg-accent mb-8" />
 
             <p className="text-lg text-text/80 leading-relaxed mb-6">
-              才那旅行，汇聚十五载入境旅游精华，致力于为全球旅人呈现最纯正的江南风韵。我们拥有资深旅行策划团队、专属导游网络与完善的服务体系，让每一位远道而来的客人，都能感受到宾至如归的体验。
+              中环旅行，汇聚十五载入境旅游精华，致力于为全球旅人呈现最纯正的江南风韵。我们拥有资深旅行策划团队、专属导游网络与完善的服务体系，让每一位远道而来的客人，都能感受到宾至如归的体验。
             </p>
 
             <p className="text-lg text-text/80 leading-relaxed mb-10">
