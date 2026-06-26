@@ -4,6 +4,11 @@ import { useLanguage } from '@/context/LanguageContext'
 import { motion, useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
 import { Send, CheckCircle, AlertCircle, Loader2, MessageCircle } from 'lucide-react'
+import emailjs from '@emailjs/browser'
+
+const SERVICE_ID = 'service_0l38w16'
+const TEMPLATE_ID = 'template_wfbbvyh'
+const USER_ID = 'zwBHnOF7mpdTfB8C6'
 
 export default function Contact() {
   const { t } = useLanguage()
@@ -19,26 +24,18 @@ export default function Contact() {
     setError(null)
 
     const form = e.currentTarget
-    const formData = new FormData(form)
 
     try {
-      const response = await fetch('https://formspree.io/f/xpwzgqbj', {
-        method: 'POST',
-        body: formData,
-        headers: {
-          Accept: 'application/json',
-        },
-      })
-
-      if (response.ok) {
-        setSubmitted(true)
-        form.reset()
-      } else {
-        const data = await response.json()
-        setError(data.error || '发送失败，请稍后重试')
-      }
+      await emailjs.sendForm(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        form,
+        USER_ID
+      )
+      setSubmitted(true)
+      form.reset()
     } catch {
-      setError('发送失败，请稍后重试')
+      setError('发送失败，请稍后重试或使用 WhatsApp 联系')
     } finally {
       setIsSubmitting(false)
     }
