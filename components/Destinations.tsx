@@ -8,36 +8,36 @@ const destinations = [
   {
     name: '西湖',
     nameEn: 'West Lake',
-    image: 'https://images.unsplash.com/photo-1598887142487-3c854d51eabb?q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1599538579568-6c4d1b6e1cbf?q=80&w=800',
     description: '杭州',
   },
   {
     name: '乌镇',
     nameEn: 'Wuzhen',
-    image: 'https://images.unsplash.com/photo-1537531383496-f4749b8032cf?q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1545893835-abaa50cbe628?q=80&w=800',
     description: '桐乡',
   },
   {
     name: '周庄',
     nameEn: 'Zhouzhuang',
-    image: 'https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1580502304784-898b462a5fb9?q=80&w=800',
     description: '苏州',
   },
   {
     name: '外滩',
     nameEn: 'The Bund',
-    image: 'https://images.unsplash.com/photo-1523702425897-8af0263b39d6?q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1537531383496-f4749b8032cf?q=80&w=800',
     description: '上海',
   },
   {
     name: '拙政园',
-    nameEn: 'Humble Administrator Garden',
+    nameEn: 'Classical Gardens',
     image: 'https://images.unsplash.com/photo-1528164344705-47542687000d?q=80&w=800',
     description: '苏州',
   },
   {
     name: '灵山小镇',
-    nameEn: 'Lingshan Town',
+    nameEn: 'Lingshan',
     image: 'https://images.unsplash.com/photo-1580477667995-2b94f01c9516?q=80&w=800',
     description: '无锡',
   },
@@ -64,6 +64,7 @@ export default function Destinations() {
           <p className="font-display text-lg text-text/70">
             {t('destinationsSubtitle')}
           </p>
+          <div className="w-24 h-0.5 bg-accent mx-auto mt-6" />
         </motion.div>
 
         {/* Destinations Grid */}
@@ -79,15 +80,17 @@ export default function Destinations() {
               <img
                 src={dest.image}
                 alt={dest.name}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6">
-                <p className="text-secondary/80 text-sm mb-1">{dest.description}</p>
+                <p className="text-secondary/90 text-sm tracking-widest uppercase mb-2">{dest.description}</p>
                 <h3 className="font-serif text-2xl font-bold text-white">
                   {language === 'zh' ? dest.name : dest.nameEn}
                 </h3>
               </div>
+              {/* Hover overlay */}
+              <div className="absolute inset-0 bg-accent/0 group-hover:bg-accent/10 transition-colors duration-500" />
             </motion.div>
           ))}
         </div>
