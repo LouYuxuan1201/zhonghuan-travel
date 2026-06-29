@@ -40,7 +40,7 @@ export default function Hero() {
         >
           <span className="inline-flex items-center gap-2 px-5 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 text-sm text-secondary/90">
             <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-            专注入境旅游 · 江浙沪地区地接服务
+            {t('heroBadge')}
           </span>
         </motion.div>
 
@@ -83,7 +83,7 @@ export default function Hero() {
             href="#services"
             className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm text-white text-lg font-medium rounded-full border border-white/30 hover:bg-white/20 transition-all"
           >
-            探索更多
+            {t('exploreMore')}
           </a>
         </motion.div>
       </div>

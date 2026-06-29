@@ -13,21 +13,21 @@ export default function Services() {
   const services = [
     {
       icon: Compass,
-      title: t('service1Title'),
-      description: t('service1Desc'),
-      features: ['专属行程规划', '24小时管家服务', '高端专车接送'],
+      titleKey: 'service1Title',
+      descKey: 'service1Desc',
+      features: ['service1Feature1', 'service1Feature2', 'service1Feature3'],
     },
     {
       icon: Briefcase,
-      title: t('service2Title'),
-      description: t('service2Desc'),
-      features: ['VIP商务接待', '行程无缝衔接', '多语言服务'],
+      titleKey: 'service2Title',
+      descKey: 'service2Desc',
+      features: ['service2Feature1', 'service2Feature2', 'service2Feature3'],
     },
     {
       icon: Map,
-      title: t('service3Title'),
-      description: t('service3Desc'),
-      features: ['水乡古镇探秘', '茶文化体验', '非遗文化之旅'],
+      titleKey: 'service3Title',
+      descKey: 'service3Desc',
+      features: ['service3Feature1', 'service3Feature2', 'service3Feature3'],
     },
   ]
 
@@ -73,21 +73,21 @@ export default function Services() {
               </div>
 
               <h3 className="font-serif text-xl font-semibold text-primary mb-3">
-                {service.title}
+                {t(service.titleKey)}
               </h3>
 
               <p className="text-text/65 leading-relaxed mb-6">
-                {service.description}
+                {t(service.descKey)}
               </p>
 
               {/* Feature tags */}
               <div className="flex flex-wrap gap-2">
-                {service.features.map((feature, fIndex) => (
+                {service.features.map((featureKey, fIndex) => (
                   <span
                     key={fIndex}
                     className="px-3 py-1 bg-light/50 text-text/60 text-xs rounded-full"
                   >
-                    {feature}
+                    {t(featureKey)}
                   </span>
                 ))}
               </div>

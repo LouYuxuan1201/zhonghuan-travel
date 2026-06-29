@@ -10,37 +10,37 @@ const destinations = [
     name: '西湖',
     nameEn: 'West Lake',
     image: '/images/西湖.jpg',
-    description: '杭州',
+    cityKey: 'dest1City',
   },
   {
     name: '乌镇',
     nameEn: 'Wuzhen',
     image: '/images/桐乡.jpg',
-    description: '桐乡',
+    cityKey: 'dest2City',
   },
   {
     name: '周庄',
     nameEn: 'Zhouzhuang',
     image: '/images/周庄.jpg',
-    description: '苏州',
+    cityKey: 'dest3City',
   },
   {
     name: '外滩',
     nameEn: 'The Bund',
     image: '/images/上海.jpg',
-    description: '上海',
+    cityKey: 'dest4City',
   },
   {
     name: '拙政园',
     nameEn: 'Classical Gardens',
     image: '/images/拙政园.jpg',
-    description: '苏州',
+    cityKey: 'dest5City',
   },
   {
     name: '灵隐寺',
     nameEn: 'Lingyin Temple',
     image: '/images/杭州灵隐寺.jpg',
-    description: '杭州',
+    cityKey: 'dest6City',
   },
 ]
 
@@ -87,7 +87,7 @@ export default function Destinations() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6">
-                <p className="text-secondary/90 text-sm tracking-widest uppercase mb-2">{dest.description}</p>
+                <p className="text-secondary/90 text-sm tracking-widest uppercase mb-2">{t(dest.cityKey)}</p>
                 <h3 className="font-serif text-2xl font-bold text-white">
                   {language === 'zh' ? dest.name : dest.nameEn}
                 </h3>
