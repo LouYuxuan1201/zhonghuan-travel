@@ -4,6 +4,7 @@ import { useLanguage } from '@/context/LanguageContext'
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { Award, Users, Globe2, Sparkles } from 'lucide-react'
+import Image from 'next/image'
 
 export default function About() {
   const { t } = useLanguage()
@@ -13,8 +14,8 @@ export default function About() {
   const stats = [
     { icon: Award, number: '15+', label: 'Years of Excellence', labelZh: '年行业深耕' },
     { icon: Users, number: '8,000+', label: 'Satisfied Guests', labelZh: '服务宾客' },
-    { icon: Globe2, number: '50+', label: 'Curated Routes', labelZh: '精品路线' },
-    { icon: Sparkles, number: '98%', label: 'Five-Star Reviews', labelZh: '五星好评' },
+    { icon: Globe2, number: '100+', label: 'Curated Routes', labelZh: '精品路线' },
+    { icon: Sparkles, number: '99.7%', label: 'Five-Star Reviews', labelZh: '五星好评' },
   ]
 
   return (
@@ -29,20 +30,15 @@ export default function About() {
             className="relative"
           >
             <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
-              <img
-                src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1200"
-                alt="Jiangnan scenery"
+              <Image
+                src="/images/西湖.jpg"
+                alt="West Lake scenery"
+                width={800}
+                height={600}
                 className="w-full h-full object-cover"
+                unoptimized
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent" />
             </div>
-            {/* Floating badge */}
-            <div className="absolute -bottom-8 -right-8 bg-white rounded-2xl p-6 shadow-xl">
-              <p className="font-serif text-4xl font-bold text-accent">15+</p>
-              <p className="text-sm text-text/70">年专业经验</p>
-            </div>
-            {/* Decorative elements */}
-            <div className="absolute -top-6 -left-6 w-24 h-24 border-2 border-accent/30 rounded-2xl" />
           </motion.div>
 
           {/* Content */}

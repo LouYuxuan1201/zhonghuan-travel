@@ -3,43 +3,44 @@
 import { useLanguage } from '@/context/LanguageContext'
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
+import Image from 'next/image'
 
 const destinations = [
   {
     name: '西湖',
     nameEn: 'West Lake',
-    image: 'https://images.unsplash.com/photo-1598902496680-5ac9a6e2d9d5?w=800&q=80',
+    image: '/images/西湖.jpg',
     description: '杭州',
   },
   {
     name: '乌镇',
     nameEn: 'Wuzhen',
-    image: 'https://images.unsplash.com/photo-1545893835-abaa50cbe628?w=800&q=80',
+    image: '/images/桐乡.jpg',
     description: '桐乡',
   },
   {
     name: '周庄',
-    nameNameEn: 'Zhouzhuang',
-    image: 'https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=800&q=80',
+    nameEn: 'Zhouzhuang',
+    image: '/images/周庄.jpg',
     description: '苏州',
   },
   {
     name: '外滩',
     nameEn: 'The Bund',
-    image: 'https://images.unsplash.com/photo-1523702425897-8af0263b39d6?w=800&q=80',
+    image: '/images/上海.jpg',
     description: '上海',
   },
   {
     name: '拙政园',
     nameEn: 'Classical Gardens',
-    image: 'https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80',
+    image: '/images/拙政园.jpg',
     description: '苏州',
   },
   {
-    name: '灵山小镇',
-    nameEn: 'Lingshan',
-    image: 'https://images.unsplash.com/photo-1580477667995-2b94f01c9516?w=800&q=80',
-    description: '无锡',
+    name: '灵隐寺',
+    nameEn: 'Lingyin Temple',
+    image: '/images/杭州灵隐寺.jpg',
+    description: '杭州',
   },
 ]
 
@@ -77,10 +78,12 @@ export default function Destinations() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="group relative aspect-[4/3] rounded-2xl overflow-hidden cursor-pointer"
             >
-              <img
+              <Image
                 src={dest.image}
                 alt={dest.name}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                unoptimized
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6">
