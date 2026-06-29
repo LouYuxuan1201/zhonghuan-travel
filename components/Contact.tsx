@@ -6,10 +6,10 @@ import { useRef, useState } from 'react'
 import { Send, CheckCircle, AlertCircle, Loader2, MessageCircle } from 'lucide-react'
 import emailjs from '@emailjs/browser'
 
-const SERVICE_ID = 'service_0l38w16'
-const TEMPLATE_CUSTOMER = 'template_wfbbvyh'  // 自动回复给客户
-const TEMPLATE_ADMIN = 'template_ox33as4'      // 发给管理员
-const USER_ID = 'zwBHnOF7mpdTfB8C6'
+const SERVICE_ID = 'service_hfa4k49'
+const TEMPLATE_CUSTOMER = 'template_oknz4fh'  // 自动回复给客户
+const TEMPLATE_ADMIN = 'template_uux5ynz'      // 发给管理员
+const USER_ID = '8uz2xQhNmrl6pKliG'
 
 export default function Contact() {
   const { t } = useLanguage()
