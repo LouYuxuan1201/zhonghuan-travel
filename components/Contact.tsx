@@ -8,6 +8,7 @@ import emailjs from '@emailjs/browser'
 
 const SERVICE_ID = 'service_hfa4k49'
 const TEMPLATE_CUSTOMER = 'template_oknz4fh'  // 自动回复给客户
+const TEMPLATE_ADMIN = 'template_uux5ynz'      // 发给管理员（甲方）
 const USER_ID = '8uz2xQhNmrl6pKliG'
 
 export default function Contact() {
@@ -26,11 +27,26 @@ export default function Contact() {
     const form = e.currentTarget
 
     try {
-      // 发给客户（自动回复）
+      // 1. 发给客户（自动回复）
       await emailjs.sendForm(
         SERVICE_ID,
         TEMPLATE_CUSTOMER,
         form,
+        USER_ID
+      )
+
+      // 2. 发给甲方（客户留言详情）
+      const adminData = {
+        name: (form.elements.namedItem('name') as HTMLInputElement)?.value || '',
+        email: (form.elements.namedItem('email') as HTMLInputElement)?.value || '',
+        contact: (form.elements.namedItem('contact') as HTMLInputElement)?.value || '',
+        message: (form.elements.namedItem('message') as HTMLTextAreaElement)?.value || '',
+      }
+
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ADMIN,
+        adminData,
         USER_ID
       )
 
